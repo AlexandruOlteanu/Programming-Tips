@@ -1,0 +1,2 @@
+     1) If we need to calculate the minimum number of swaps to change a permutation to another one. The idea is, we build a graph with undirected edges (a[i],b[i]). 
+  The minimum number of swaps will be equal to n − c, where c is equal to the number of connected components in the resulting graph.
