@@ -1,0 +1,68 @@
+  For more Documentation you can read the following article : https://cp-algorithms.com/data_structures/sparse-table.html
+
+  Sparse Table is an efficient way to check in O(log(MaxN)) any interval if it has some properties were MaxN is 
+the Lenght of the Current Segment Lenghts. 
+
+   Building the Sparse Table for all segments of lenght power of 2 using dynamic programming (Note : f is a function that depends on what we want to calculate.
+   
+                                       int logmax = 32 - __builtin_clz(n);
+                                            for(int j = 0; j <= logmax; ++j){
+                                                for(int i = 1; i + (1<<j) - 1 <= n; ++i){
+                                                    if(j == 0){
+                                                        st[i][0] = f(..., a[i]);
+                                                        continue;
+                                                    }
+                                                    st[i][j] = f(st[i][j - 1], st[i + (1<<(j - 1))][j - 1]);
+                                                }
+                                            }
+   
+   Checking the longest good segment using 2 pointers and function "good" :
+   
+   
+   auto good = [&] (int x, int y){
+        ll answer = 0;
+        while(x <= y){
+            ll u = (y - x + 1);
+            ll t = 1, sum = 0;
+            while(t <= u){
+                t *= 2;
+                ++sum;
+            }
+            --sum;
+            answer = f(answer, st[x][sum]);
+            x += (1<<sum);
+        }
+        ....
+        ....
+        
+        return false;
+    };
+    
+    
+    
+    int cnt = 0;
+        int i = 1, j = 1;
+        while(i <= n && j <= n){
+            if(good(i, j)){
+                cnt = max(cnt, j - i + 1);
+                ++j;
+            }
+            else{
+                ++i;
+                j = max(j, i);
+            }
+        }
+        cout<<cnt + 1<<'\n';
+  
+  
+  
+  
+  That's all the implementation for Sparse Table that we need!
+    
+                                        
+    
+    
+   
+   
+   
+
