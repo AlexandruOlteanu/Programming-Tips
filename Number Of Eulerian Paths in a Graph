@@ -2,6 +2,9 @@
 vertex i to vertex j (a path were edges can repeat) is element A[i][j] of A^(k - 1), we can calculate this with 
 binary matrix exponentiation. 
 
+	Related problems:
+   1)https://codeforces.com/contest/691/problem/E
+   
 
 Binary Matrix Exponantiaton :
 
