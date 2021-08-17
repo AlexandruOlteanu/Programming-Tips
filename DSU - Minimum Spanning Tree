@@ -1,0 +1,33 @@
+vector<pii> v[maxn];
+int p[maxn], sz[maxn], city[maxn];
+vector<tuple<int, int, int>> e;
+
+int find(int x){
+    return ((x == p[x]) ? x : find(p[x]));
+}
+
+void unite(int x, int y){
+    if(sz[x] < sz[y]){
+        p[x] = y;
+        sz[y] += sz[x];
+    }
+    else{
+        p[y] = x;
+        sz[x] += sz[y];
+    }
+}
+
+void build_MST(int n){
+ 
+    for(int i = 0; i < n; ++i){
+        int x = find(get<1>(e[i]));
+        int y = find(get<2>(e[i]));
+        int c = get<0>(e[i]);
+        if(x == y)continue;
+        v[get<1>(e[i])].pb({get<2>(e[i]), c});
+        v[get<2>(e[i])].pb({get<1>(e[i]), c});
+        unite(x, y);
+    }
+ 
+    return;
+}
