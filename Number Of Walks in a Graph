@@ -1,4 +1,4 @@
-    Supose we have a graph with A being it's adjanency matrix. The number of Eulerian Paths of length k from 
+    Supose we have a graph with A being it's adjanency matrix. The number of Walks of length k from 
 vertex i to vertex j (a path were edges can repeat) is element A[i][j] of A^(k - 1), we can calculate this with 
 binary matrix exponentiation. 
 
