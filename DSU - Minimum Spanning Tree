@@ -1,20 +1,13 @@
 vector<pii> v[maxn];
-int p[maxn], sz[maxn], city[maxn];
+int p[maxn];
 vector<tuple<int, int, int>> e;
 
 int find(int x){
-    return ((x == p[x]) ? x : find(p[x]));
+    return ((x == p[x]) ? x : (p[x] = find(p[x])));
 }
 
-void unite(int x, int y){
-    if(sz[x] < sz[y]){
-        p[x] = y;
-        sz[y] += sz[x];
-    }
-    else{
-        p[y] = x;
-        sz[x] += sz[y];
-    }
+void merge(int x, int y){
+    p[x] = y;
 }
 
 void build_MST(int n){
