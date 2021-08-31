@@ -1,0 +1,6 @@
+    If we have 2 numbers, a and b then the following realations are true:
+    
+   -  a + b = a & b + a | b
+   -  a ^ b = a | b - (a & b)
+   -  a + b = a ^ b + 2 * (a & b)
+   
