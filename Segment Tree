@@ -1,0 +1,43 @@
+
+    Here is the template for Segment Tree Implementation:
+ 
+ ll node[2 * maxn + 5];
+ 
+ void updatetree(int x){
+    if(x == 0)return;
+    if(node[(x - 1) / 2] = Function(node[(x - 1) / 2], node[x]));
+    updatetree((x - 1) / 2);
+    return;
+}
+
+void find(int nd, int x, int y, int st, int dr){
+    if(x > y || y < st || x > dr)return;
+    if(x >= st && y <= dr){
+        ans = Function(ans, node[nd]);
+        return;
+    }
+    find(nd * 2 + 1, x, (y - x) / 2 + x, st, dr);
+    find(nd * 2 + 2, x + (y - x) / 2 + 1, y, st, dr);
+    return;
+}
+
+
+ll power = 1;
+        while(power < n){
+            power <<= 1LL;
+        }
+        --power;
+        for(int i = 0; i <= power + n - 1; ++i){
+            node[i] = -infll;
+        }
+        for(int i = 1; i <= n; ++i){
+            node[power + i - 1] = dp[i];
+            updatetree(power + i - 1);
+        }
+        
+   for(int i = 1; i <= query; ++i){
+        int x, y;cin>>x>>y;
+        find(0, 1, power - 1, x, y)
+   }
+
+    
