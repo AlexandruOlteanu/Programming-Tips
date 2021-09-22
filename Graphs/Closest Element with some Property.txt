@@ -1,0 +1,3 @@
+If we are looking in a directed graph for closest element with some property, For example
+the closest node with a different parity than the current node, we can just invert the
+directed graph and run multiple BFS-s from the nodes that have that property!
